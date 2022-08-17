@@ -7,7 +7,7 @@
 :root {
 	--btn-hover-bg-color: #f593ba;
 	--btn-notwatched-bg-color: #f43f5e;
-	--btn-watched-bg-color: #0c6304;
+	--btn-watched-bg-color: #139207;
 	--text-color-white: #fff;
 	--text-color-black: #000;
 	--header-color: #831843;
@@ -23,6 +23,7 @@ html {
 body * {
 	box-sizing: border-box;
 	font-family: "Montserrat", sans-serif;
+	position: relative;
 }
 
 .btn {
@@ -36,10 +37,10 @@ body * {
 header {
 	background-color: var(--header-color);
 	padding: 2rem 4rem;
-	margin-bottom: 20px;
 	position: fixed;
-	z-index: 100;
+	top: 0;
 	width: 100%;
+	z-index: 1000;
 }
 
 nav {
@@ -72,20 +73,23 @@ nav {
 
 .media {
 	position: relative;
-	top: 14rem;
+	top: 9rem;
 }
 
 .add-media {
 	display: flex;
 	align-items: center;
 	gap: 5px;
-	margin: auto;
+	position: fixed;
+	left: calc(50% - (7%));
+	margin-top: 50px;
 	padding: 15px 15px;
 	border-radius: 5px;
 	cursor: pointer;
 	margin-bottom: 20px;
 	font-weight: 600;
 	font-size: 2rem;
+	z-index: 1;
 }
 
 .add-media:hover {
@@ -93,39 +97,39 @@ nav {
 	color: var(--text-color-white);
 }
 
-.modal {
-	width: 25%;
+.modal-card {
+	width: 100%;
+	height: 100vh;
 	margin: 30px auto;
+	position: fixed;
+	top: 8.6rem;
+	background-color: rgba(0, 0, 0, 0.514);
 	display: none;
+	padding-top: 30px;
+	z-index: 2;
 }
 
 form {
 	display: grid;
-	gap: 20px;
-	width: 80%;
+	gap: 40px;
+	width: 30%;
 	margin: auto;
 	justify-items: center;
 	border: 1px solid rgb(209, 209, 209);
 	border-radius: 10px;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	background-color: #faeff3;
-}
-
-.title {
-	display: grid;
-	gap: 8px;
-	justify-items: center;
 }
 
 ::placeholder {
 	font-weight: 500;
 }
 
-.title input,
 #category,
-#type {
-	width: 74%;
+#type,
+input[type="text"] {
+	width: 70%;
 	margin: auto;
 	outline: none;
 	height: 3.5rem;
@@ -137,9 +141,10 @@ form {
 #category,
 #type {
 	background-color: var(--text-color-white);
+	padding: 0 20px 0 20px;
 }
 
-.watched {
+.watch {
 	font-size: 1.8rem;
 	font-weight: 500;
 	display: flex;
@@ -147,12 +152,13 @@ form {
 	gap: 10px;
 }
 
-.watched input {
+.watch input {
 	height: 2rem;
 	width: 2rem;
 }
 
-.submit {
+.btn-submit {
+	width: 70%;
 	font-size: 2rem;
 	padding: 10px;
 	border: none;
@@ -160,42 +166,60 @@ form {
 	font-weight: 500;
 	background-color: var(--btn-watched-bg-color);
 	color: var(--text-color-white);
+	cursor: pointer;
 }
 
-.grid-container {
-	width: 25%;
+#grid-container {
+	width: 80%;
 	margin: 15px auto;
+	position: relative;
+	top: 250px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
 }
 
 .card {
-	width: 80%;
+	width: 20%;
 	margin: auto;
 	border: 1px solid rgb(209, 209, 209);
 	border-radius: 10px;
-	display: grid;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	gap: 20px;
 	justify-items: center;
 	background-color: var(--card-color);
 	padding: 30px 0;
 	font-size: 2rem;
 	font-weight: 500;
-	display: none;
 }
 
-.media-watched {
+.watched {
 	background-color: var(--btn-watched-bg-color);
 	color: var(--text-color-white);
-	padding: 10px 50px;
+	padding: 10px;
 	border: none;
 	border-radius: 5px;
 	font-weight: 500;
 }
 
-.media-remove {
+.not-watched {
 	background-color: var(--btn-notwatched-bg-color);
 	color: var(--text-color-white);
-	padding: 10px 50px;
+	padding: 10px;
 	border: none;
 	border-radius: 5px;
 	font-weight: 500;
+}
+
+.remove-media {
+	padding: 10px;
+	background-color: #ff0000;
+	color: white;
+	font-size: 1.6rem;
+	border: none;
+	border-radius: 5px;
+	font-weight: 500;
+	cursor: pointer;
 }

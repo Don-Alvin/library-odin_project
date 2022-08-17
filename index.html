@@ -12,7 +12,7 @@
     <script src="./library.js/app.js" defer></script>
 </head>
 
-<body>
+<body class="body">
     <header>
         <nav>
             <div class="logo-name">
@@ -29,56 +29,45 @@
         </nav>
     </header>
 
-    <section class="media">
-        <button type="submit" class="btn add-media">
-            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
-            </svg>
-            Add Media
-        </button>
-        <div class="added-media">
-            <div class="modal">
-                <div class="modal-card">
-                    <form action="#" method="get">
-                        <div class="title">
-                            <input type="text" name="title" id="title" required title="Enter the name of your media"
-                                placeholder="Title">
-                        </div>
-
-                        <select name="type" id="type">
-                            <option value="type">Type</option>
-                            <option value="Movie">Action</option>
-                            <option value="TV Show">TV Show</option>
-                        </select>
-
-                        <select name="category" id="category">
-                            <option value="category">Category</option>
-                            <option value="action">Action</option>
-                            <option value="drama">Drama</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="family">Family</option>
-                            <option value="animation">Animation</option>
-                            <optgroup></optgroup>
-                        </select>
-                        <div class="watched">
-                            <label for="watch">Have you watched it?</label>
-                            <input type="checkbox" name="watch" id="watch">
-                        </div>
-                        <button type="submit" class="btn submit">Submit</button>
-                    </form>
-                </div>
+    <main>
+        <section class="media">
+            <button type="submit" class="btn add-media">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+                </svg>
+                Add Media
+            </button>
+        </section>
+        <section>
+            <div class="modal-card">
+                <form action="#" method="get">
+                    <input type="text" name="title" id="title" required title="Enter the name of your media"
+                        placeholder="Title">
+                    <select name="type" id="type">
+                        <option value="type">Type</option>
+                        <option value="Movie">Movie</option>
+                        <option value="TV Show">TV Show</option>
+                    </select>
+                    <select name="category" id="category">
+                        <option value="Category">Category</option>
+                        <option value="Action">Action</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Family">Family</option>
+                        <option value="Animation">Animation</option>
+                        <optgroup></optgroup>
+                    </select>
+                    <div class="watch">
+                        <label for="watch">Have you watched it?</label>
+                        <input type="checkbox" name="watch" id="watch">
+                    </div>
+                    <button type="submit" id='submit' class="btn-submit">Submit</button>
+                </form>
             </div>
-            <div class="grid-container">
-                <div class="card">
-                    <h1 class="media-title">Title</h1>
-                    <h2 class="media-category">Category</h2>
-                    <h2 class="media-type">Movie</h2>
-                    <button class="media-watched btn">Watched</button>
-                    <button class="media-remove btn">Remove</button>
-                </div>
-            </div>
+        </section>
+        <div id="grid-container">
         </div>
-    </section>
+    </main>
 </body>
 
 </html>
